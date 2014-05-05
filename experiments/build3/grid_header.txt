@@ -1,0 +1,7 @@
+Width 449
+Height 400
+Depth 6
+Resolution 0.1
+Extent_Min 0 0
+Extent_Range 44.9073 39.9535
+Convert_Ratio 9.97611 9.98661

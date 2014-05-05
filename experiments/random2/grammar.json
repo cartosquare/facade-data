@@ -1,0 +1,99 @@
+{
+    "atom": "facade",
+    "terminal": [
+        {
+            "name": "window",
+            "color": [255,0,0]
+        },
+        {
+            "name": "wall",
+            "color": [255,255,0]
+        },
+        {
+            "name": "balcony",
+            "color": [0, 0, 255]
+        },
+        {
+            "name": "empty",
+            "color": [255, 255, 0]
+        }
+    ],
+    "unterminal": [
+        "facadeBalconyWall", "facadeWindowWall",
+        "floorWallBalcony", "floorBalconyWall",
+        "floorWallWindow", "floorWindowWall"
+     ],
+
+    "grammar": [
+        {
+            "name": "facade -> floorWallWindow + facadeBalconyWall",
+            "direction": 0,
+            "parent": "facade",
+            "child1": "floorWallWindow",
+            "child2": "facadeBalconyWall",
+            "parameter_range": [20, 50],
+            "exception": "wall"
+        },
+        {
+            "name": "facadeBalconyWall ->floorWallBalcony + facadeWindowWall",
+            "direction": 0,
+            "parent": "facadeBalconyWall",
+            "child1": "floorWallBalcony",
+            "child2": "facadeWindowWall",
+            "parameter_range": [10, 40],
+            "exception": "wall"
+        },
+        {
+            "name": "facadeWindowWall -> floorWallWindow + facadeBalconyWall",
+            "direction": 0,
+            "parent": "facadeWindowWall",
+            "child1": "floorWallWindow",
+            "child2": "facadeBalconyWall",
+            "**symbol_parameter": "window",
+            "parameter_range": [10, 40],
+            "exception": "wall"
+        },
+
+        {
+            "name": "floorWallBalcony -> wall + floorBalconyWall",
+            "direction": 1,
+            "parent": "floorWallBalcony",
+            "child1": "wall",
+            "child2": "floorBalconyWall",
+            "**symbol_parameter": "wall",
+            "parameter_range": [10, 40],
+            "exception": "wall"
+        },
+        {
+            "name": "floorBalconyWall -> balcony + floorWallBalcony",
+            "direction": 1,
+            "parent": "floorBalconyWall",
+            "child1": "balcony",
+            "child2": "floorWallBalcony",
+            "**symbol_parameter": "balcony",
+            "parameter_range": [20, 60],
+            "exception": "wall"
+        },
+        
+        {
+            "name": "floorWallWindow -> wall + floorWindowWall",
+            "direction": 1,
+            "parent": "floorWallWindow",
+            "child1": "wall",
+            "child2": "floorWindowWall",
+            "**symbol_parameter": "wall",
+            "parameter_range": [10, 50],
+            "exception": "wall"
+        },
+        {
+            "name": "floorWindowWall -> window + floorWallWindow",
+            "direction": 1,
+            "parent": "floorWindowWall",
+            "child1": "window",
+            "child2": "floorWallWindow",
+            "**symbol_parameter": "window",
+            "parameter_range": [20, 50],
+            "exception": "wall"
+        }
+    ]
+}

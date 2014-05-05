@@ -1,0 +1,21 @@
+{
+    "episodes": 2000,
+    "g_episodes": 1000,
+    "threads": 10,
+    "resolution": 0.1,
+    "resample": [
+        0.2,
+        0.2,
+        0.2
+    ],
+    "margin": [
+        5,
+        5,
+        5,
+        5
+    ],
+    "load_qtable": 0,
+    "plane_distance": 0.1,
+    "symbol_weights": [1.0, 1.0, 1.0, 1.0],
+    "load_svm_model": 0
+}

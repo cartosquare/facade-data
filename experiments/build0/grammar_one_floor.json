@@ -1,0 +1,54 @@
+{
+    "atom": "facade",
+    "terminal": [
+        {
+            "name": "window",
+            "color": [
+                0,
+                0,
+                255
+            ]
+        },
+        {
+            "name": "wall",
+            "color": [
+                120,
+                120,
+                120
+            ]
+        }
+    ],
+    "unterminal": [
+        "floorWall",
+        "floorWindow"
+    ],
+    "grammar": [
+        {
+            "name": "facade -> wall + floorWindow",
+            "direction": 1,
+            "parent": "facade",
+            "child1": "wall",
+            "child2": "floorWindow",
+            "parameter_range": [5, 20],
+            "exception": "wall"
+        },
+        {
+            "name": "floorWall -> wall + floorWindow",
+            "direction": 1,
+            "parent": "floorWall",
+            "child1": "wall",
+            "child2": "floorWindow",
+            "parameter_range": [5, 20],
+            "exception": "wall"
+        },
+        {
+            "name": "floorWindow -> window + floorWall",
+            "direction": 1,
+            "parent": "floorWindow",
+            "child1": "window",
+            "child2": "floorWall",
+            "parameter_range": [5, 20],
+            "exception": "wall"
+        }
+    ]
+}

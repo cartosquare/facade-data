@@ -1,0 +1,14 @@
+{
+    "episodes": 5000,
+    "g_episodes": 5000,
+    "learning_rate": 1.0,
+    "grouping": 1,
+    "threads": 1,
+    "resolution": 0.1,
+    "static_outlier_remover" : [40, 1.0],
+    "raw_format": "txt",
+    "symbol_weights": [1.0, 1.0, 1.0, 1.0, 1.0],
+    "load_qtable": 0,
+    "plane_distance": 0.1,
+    "load_svm_model": 1
+}

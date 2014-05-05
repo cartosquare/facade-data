@@ -1,0 +1,6 @@
+min_x	0
+min_y	0
+min_z	-1.14441e-005
+range_x	44.9073
+range_y	39.9535
+range_z	1.52588e-005

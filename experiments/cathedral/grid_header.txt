@@ -1,0 +1,7 @@
+Width 365
+Height 314
+Depth 10
+Resolution 0.1
+Extent_Min -36.6085 0.00490773
+Extent_Range 36.5264 31.4365
+Convert_Ratio 9.96539 9.95658
