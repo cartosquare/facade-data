@@ -3,19 +3,23 @@
     "terminal": [
         {
             "name": "window",
-            "color": [
-                0,
-                0,
-                1.0
-            ]
+            "color": [0,0,1.0]
         },
         {
             "name": "wall",
-            "color": [
-                1.0,
-                0.0,
-                0.0
-            ]
+            "color": [1.0,0.0,0.0]
+        },
+        {
+            "name": "balcony",
+            "color": [0, 1.0, 0]
+        },
+        {
+            "name": "hole",
+            "color": [1.0, 1.0, 0]
+        },
+        {
+            "name": "empty",
+            "color": [1.0, 1.0, 1.0]
         }
     ],
     "unterminal": [
