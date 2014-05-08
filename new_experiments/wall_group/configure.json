@@ -1,6 +1,6 @@
 {
-    "episodes": 5000,
-    "g_episodes": 5000,
+    "episodes": 100000,
+    "g_episodes": 10000,
     "threads": 5,
     "raw_format": "xyzl",
     "resolution": 0.1,
@@ -17,8 +17,8 @@
         5,
         5
     ],
-    "symbol_weights": [1.0, 1.0],
+    "symbol_weights": [1.0, 1.0, 1.0, 1.0, 1.0],
     "load_qtable": 0,
     "plane_distance": 0.1,
-    "load_svm_model": 0
+    "load_svm_model": 1
 }

@@ -15,7 +15,7 @@
         },
         {
             "name": "hole",
-            "color": [1.0, 1.0, 0]
+            "color": [0.0, 0.0, 0]
         },
         {
             "name": "empty",
@@ -24,54 +24,105 @@
     ],
     "unterminal": [
         "facadeWall",
-        "facadeFloor",
+        "facadeBalconyFloor",
+        "facadeWallFloor",
+
         "floorWall",
-        "floorWindow"
+        "floorWindow",
+        "floorBalcony",
+        "floorHole"
     ],
     "grammar": [
         {
-            "name": "facade -> wall + facadeFloor",
-            "direction": 0,
+            "name": "facade -> wall + facadeBalconyFloor",
+            "direction": 1,
             "parent": "facade",
             "child1": "wall",
-            "child2": "facadeFloor",
-            "value_parameter": [10],
+            "child2": "facadeBalconyFloor",
+            "value_parameter": [12],
             "exception": "wall"
         },
         {
-            "name": "facadeFloor -> floorWall + facadeWall",
-            "direction": 0,
-            "parent": "facadeFloor",
-            "child1": "floorWall",
+
+            "name": "facadeBalconyFloor -> floorBalcony + facadeWall",
+            "direction": 1,
+            "parent": "facadeBalconyFloor",
+            "child1": "floorBalcony",
             "child2": "facadeWall",
-            "value_parameter": [20],
+            "value_parameter": [21],
             "exception": "wall"
         },
         {
-            "name": "facadeWall -> wall + facadeFloor",
-            "direction": 0,
+
+            "name": "facadeWall -> wall + facadeBalconyFloor",
+            "direction": 1,
             "parent": "facadeWall",
             "child1": "wall",
-            "child2": "facadeFloor",
-            "value_parameter": [20],
+            "child2": "facadeBalconyFloor",
+            "value_parameter": [6, 8, 20],
+            "exception": "wall"
+        },
+        {
+            "name": "facadeWall -> wall + facadeWallFloor",
+            "direction": 1,
+            "parent": "facadeWall",
+            "child1": "wall",
+            "child2": "facadeWallFloor",
+            "value_parameter": [6, 8, 20],
+            "exception": "wall"
+        },
+        {
+            "name": "facadeWallFloor -> floorWall + facadeWall",
+            "direction": 1,
+            "parent": "facadeWallFloor",
+            "child1": "floorWall",
+            "child2": "facadeWall",
+            "value_parameter": [21],
+            "exception": "wall"
+        },
+        {
+            "name": "floorBalcony -> balcony + floorHole",
+            "direction": 0,
+            "parent": "floorBalcony",
+            "child1": "balcony",
+            "child2": "floorHole",
+            "value_parameter": [6],
+            "exception": "wall"
+        },
+        {
+            "name": "floorHole -> hole + floorWall",
+            "direction": 0,
+            "parent": "floorHole",
+            "child1": "hole",
+            "child2": "floorWall",
+            "value_parameter": [13],
             "exception": "wall"
         },
         {
             "name": "floorWall -> wall + floorWindow",
-            "direction": 1,
+            "direction": 0,
             "parent": "floorWall",
             "child1": "wall",
             "child2": "floorWindow",
-            "value_parameter": [8, 11, 15],
+            "value_parameter": [4, 6, 8, 41],
+            "exception": "wall"
+        },
+        {
+            "name": "floorWall -> wall + floorBalcony",
+            "direction": 0,
+            "parent": "floorWall",
+            "child1": "wall",
+            "child2": "floorBalcony",
+            "value_parameter": [3, 4, 6, 8, 41],
             "exception": "wall"
         },
         {
             "name": "floorWindow -> window + floorWall",
-            "direction": 1,
+            "direction": 0,
             "parent": "floorWindow",
             "child1": "window",
             "child2": "floorWall",
-            "value_parameter": [12, 14, 16],
+            "value_parameter": [15, 17],
             "exception": "wall"
         }
     ]
